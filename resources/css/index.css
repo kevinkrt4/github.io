@@ -1,5 +1,5 @@
 .zoom { 
-    position: top left;
+    object-position: top left;
     padding: 10px;
     /* background-color: green; */
     transition: transform .2s; /* Animation */
