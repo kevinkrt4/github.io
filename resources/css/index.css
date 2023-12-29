@@ -1,6 +1,6 @@
 .ytimg { 
     padding: 10px;
-    background-color: green;
+    /*background-color: green;*/
     overflow: hidden;
     transition: transform .2s; /* Animation */
     width: 160px;
