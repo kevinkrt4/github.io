@@ -7,11 +7,11 @@
     margin: 0 auto;
   }
 
-  .zoom a img {
+.zoom a img {
     width: 100%;
     transition: 0.5s all ease-in-out;
 }
   
-  .zoom:hover a img{
+.zoom:hover a img{
     transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  }
+}
