@@ -3,8 +3,8 @@
     /* background-color: green; */
     overflow: hidden;
     transition: transform .2s; /* Animation */
-    width: 320px;
-    height: 180px;
+    width: 160px;
+    height: 90px;
     margin: 0 auto;
   }
 
