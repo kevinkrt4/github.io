@@ -1,5 +1,4 @@
 .zoom { 
-    object-position: left top;
     padding: 10px;
     /* background-color: green; */
     transition: transform .2s; /* Animation */
@@ -9,6 +8,7 @@
   }
 
 .zoom a img { 
+    object-position: left top;
     width: 100%;
     transition: 0.5s all ease-in-out;
 }
