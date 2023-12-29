@@ -3,13 +3,14 @@
     /* background-color: green; */
     overflow: hidden;
     transition: transform .2s; /* Animation */
-    width: 160px;
-    height: 90px;
+    width: 320px;
+    height: 180px;
     margin: 0 auto;
   }
 
 .ytimg { 
-    /* width: 100%; */
+    width: 50%;
+    height: 50%;
     transition: 0.5s all ease-in-out; 
 }
   
