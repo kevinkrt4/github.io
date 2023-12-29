@@ -9,7 +9,7 @@
   }
 
 .ytimg { 
-    width: 100%;
+    /* width: 100%; */
     transition: 0.5s all ease-in-out; 
 }
   
