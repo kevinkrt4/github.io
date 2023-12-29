@@ -1,6 +1,10 @@
+img {position: relative;
+    object-position: left top;
+}
 .zoom { 
     padding: 10px;
     /* background-color: green; */
+    overflow: hidden;
     transition: transform .2s; /* Animation */
     width: 320px;
     height: 180px;
@@ -10,7 +14,7 @@
 .zoom a img { 
     object-position: left top;
     width: 100%;
-    transition: 0.5s all ease-in-out;
+    transition: 0.5s all ease-in-out; 
 }
   
 .zoom:hover a img{
