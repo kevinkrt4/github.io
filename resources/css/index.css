@@ -1,7 +1,26 @@
-.banner {
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  
+  img {
+    max-width: 100%
+  }
+  
+  .image {
+    flex-basis: 40%
+  }
+  
+  .text {
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+/*.banner {
     width: 100%;
     height: auto;
-}
+}*/
 .ytimg { 
     padding: 10px;
     /* background-color: green; */
