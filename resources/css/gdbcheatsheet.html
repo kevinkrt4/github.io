@@ -1,0 +1,54 @@
+<h1>GDB Cheat Sheet</h1>
+
+<p>
+    For C: Compile with -g -Wall -Werr
+
+    For Assembler: 
+        as --gstabs --32 -o ./$1.o ./$1.s
+        ld -melf_i386 -o ./$1.out ./$1.o
+    Where: $1 is the name of the file you want to assemble.
+
+    Run gdb: tdb --tui <executable>
+
+    Running the program from inside gdb
+    r <arg1> <arg2> <arg3>... #pass command line arguments into gdb
+    r (no arguments) #re-run with the last set of arguments
+
+    Breakpoints
+    b <location> #location can be a label, line number, or function name
+    info break #list breakpoints with their breakpoint id numbers
+    d <breakpoint> to delete a breakpoint
+    disable/enable <breakpoint> disables or enables a breakpoint without deleting it
+
+    You can also make a breakpoint conditional if you only want to break when certain conditions are met:
+    info breakpoints #to see the breakpoint id numbers
+    condition <breakpoint id number> <condition under which you want to break>
+
+    Moving up and down the call stack
+    bt #Print a backtrace of the entire stack: one line per frame for all frames in the stack.
+    up <N> #to move up the call stack N frames. if N is not specified up will move up one frame
+    down <N> #to move down the call stack N frames. if N is not specified down will move down one frame
+
+    Displaying values
+    p <expression> #displays the value of expression, variable, or register
+    display <expression> #displays the value of expression every time the program pauses (for example, at break points)
+    info locals #show all local variables
+    info args #show all arguments that were passed to the program
+    info variables: #show values of all static and global variables
+    info registers: #shows contents of all registers
+    watch <expression> #monitors changes in an expression or variable
+
+    Stepping through the program
+    n #steps over function calls. skips over the function to the line after the end of the function
+    s #steps into function calls. goes to the first line inside the function
+    fin #finishes execution of the function you are in. goes to the line after the end of the function
+    c #same as resume. runs till the next pause (break) is encountered
+
+    Running operating system commands without leaving gdb
+    shell <command> #let's you run linux commands without leaving gdb. For example: shell ls would show you a list of files in the current directory without leaving gdb
+    make #reruns make without leaving gdb
+
+    Selecting a gdb window
+    focus cmd #sets focus on teh command window
+    focus src #sets focus on the code window
+</p>
