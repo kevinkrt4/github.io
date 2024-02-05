@@ -1,22 +1,30 @@
 <h1>GDB Cheat Sheet</h1>
 
-<p>
-    For C: Compile with -g -Wall -Werr
+<h2>For C:</h2> 
+    <p>gcc -g -Wall -Werr (source file)</p>
+   
+<h2>For GCC Assembler:</h2> 
+    <p>
+        <ol>
+            <li>as --gstabs --32 -o ./$1.o ./$1.s</li>
+            <li>ld -melf_i386 -o ./$1.out ./$1.o</li>
+        </ol>
+        Where: $1 is the name of the file you want to assemble.
+    </p>
 
-    For Assembler: 
-        as --gstabs --32 -o ./$1.o ./$1.s
-        ld -melf_i386 -o ./$1.out ./$1.o
-    Where: $1 is the name of the file you want to assemble.
+    
 
-    Run gdb: tdb --tui <executable>
+    <h2>Loading the program into GDB</h2> 
+    gdb --tui (executable)<br><br>
+    --tui tells gdb to display the source-code window
 
-    Running the program from inside gdb
-    r <arg1> <arg2> <arg3>... #pass command line arguments into gdb
-    r (no arguments) #re-run with the last set of arguments
+    <h2>GDB Commands</h2>
+    r (arg1 arg2 arg3...) runs the program with the given parameters<br>
+    r (no arguments) re-runs with the previous set of arguments<br>
 
-    Breakpoints
-    b <location> #location can be a label, line number, or function name
-    info break #list breakpoints with their breakpoint id numbers
+    <h2>Breakpoints</h2>
+    b (location) location can be a label, line number, or function name
+    info break  list breakpoints with their breakpoint id numbers
     d <breakpoint> to delete a breakpoint
     disable/enable <breakpoint> disables or enables a breakpoint without deleting it
 
@@ -51,4 +59,3 @@
     Selecting a gdb window
     focus cmd #sets focus on teh command window
     focus src #sets focus on the code window
-</p>
