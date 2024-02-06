@@ -13,8 +13,7 @@
                 <a href="./index.html">Home</a>
             </nav>
             <img class="banner" src="resources/images/ArtDump1.png" alt="page banner">
-            <h1>GDB Notes</h1>
-            
+            <h1>GDB Notes</h1>          
         </header>
         <main>
             <h2>For C:</h2> 
@@ -24,65 +23,78 @@
                 
             <h2>For GCC Assembler:</h2> 
                 <p>
-                    as --gstabs --32 -o ./$1.o ./$1.s<br>
-                    ld -melf_i386 -o ./$1.out ./$1.o<br><br>
-                        
-                    <aside>$1 is the name of the file you want to assemble.</aside> 
+                    as --g stabs --32 -o ./$1.o ./$1.s<br>
+                    ld -m elf_i386 -o ./$1.out ./$1.o<br>                       
+                    <span class="comment">$1 is the name of the file you want to assemble.</span class="comment"> 
                 </p>
 
             <h2>Loading the program into GDB</h2> 
                 <p>
-                    gdb --tui (executable)<br><br>
-                    --tui tells gdb to display the source-code window
+                    gdb --tui (executable)<br>
+                    <span class="comment">--tui Tells gdb to display the source-code window</span>
                 </p>
         
             <h2>GDB Commands</h2>
                 <p>
-                    r (arg1 arg2 arg3...) runs the program with the given parameters<br>
-                    r (no arguments) re-runs with the previous set of arguments
+                    r (arg1 arg2 arg3...)   Run the program with the given parameters<br>
+                    r (no arguments)        Re-runs with the previous set of arguments
                 </p>
-            
-        
+                    
             <h2>Breakpoints</h2>
-                <p>b (location) location can be a label, line number, or function name
+                <p>
+                    b (location) location can be a label, line number, or function name
                     info breakpoint     Lists breakpoints with their breakpoint id numbers<br>
                     d breakpoint        Deletes a breakpoint<br>
-                    disable breakpoint  Disables a breakpoint without deleting it
-                    enable breakpoint   Re-enables a breakpoint
-                    condition <breakpoint id number> <condition under which you want to break>
-                    <aside>
+                    disable breakpoint  Disables a breakpoint without deleting it<br>
+                    enable breakpoint   Re-enables a breakpoint<br>
+                    condition (breakpoint id number) (condition under which you want to break)
+                    <span class="comment">
                         Conditional breakpoints are good for debugging. You can watch a variable or 
                         result of an expression and only break when certain conditions are met.
-                    </aside>
+                    </span class="comment">
+                </p>
+
+            <h2>Displaying values</h2>
+                <p>
+                    <span class="command">p (expression)</span>  Display the value of expression, variable, or register<br>
+                    <span class="command">display (expression)</span> Display the value of expression every time the program pauses (for example, at break points)<br>
+                    <span class="command">info locals</span> Show all local variables<br>
+                    <span class="command">info args</span> Show all arguments that were passed to the program<br>
+                    <span class="command">info variables</span> Show values of all static and global variables<br>
+                    <span class="command">info registers</span> Show contents of all registers<br>
+                    <span class="command">watch (expression)</span> Monitor changes in an expression or variable<br>
+                </p>
+                  
+            <h2>Stepping through the program</h2>
+                <p>
+                    n Steps over function calls. skips over the function to the line after the end of the function<br>
+                    s Steps into function calls. goes to the first line inside the function<br>
+                    fin Finishes execution of the function you are in. goes to the line after the end of the function<br>
+                    c Same as resume. runs till the next pause (break) is encountered<br>
+                </p>    
+            
+            <h2>Moving up and down the call stack</h2>
+                <p>
+                    bt #Print a backtrace of the entire stack: one line per frame for all frames in the stack.<br>
+                    up (N) #to move up the call stack N frames. if N is not specified up will move up one frame<br>
+                    down (N) #to move down the call stack N frames. if N is not specified down will move down one frame<br>
+                    bt #Print a backtrace of the entire stack: one line per frame for all frames in the stack.<br>
+                    up (N) #to move up the call stack N frames. if N is not specified up will move up one frame<br>
+                    down (N) #to move down the call stack N frames. if N is not specified down will move down one frame<br>
                 </p>
         
-            <h2>Moving up and down the call stack</h2>
-            bt #Print a backtrace of the entire stack: one line per frame for all frames in the stack.
-            up <N> #to move up the call stack N frames. if N is not specified up will move up one frame
-            down <N> #to move down the call stack N frames. if N is not specified down will move down one frame
-        
-            Displaying values
-            p <expression> #displays the value of expression, variable, or register
-            display <expression> #displays the value of expression every time the program pauses (for example, at break points)
-            info locals #show all local variables
-            info args #show all arguments that were passed to the program
-            info variables: #show values of all static and global variables
-            info registers: #shows contents of all registers
-            watch <expression> #monitors changes in an expression or variable
-        
-            Stepping through the program
-            n #steps over function calls. skips over the function to the line after the end of the function
-            s #steps into function calls. goes to the first line inside the function
-            fin #finishes execution of the function you are in. goes to the line after the end of the function
-            c #same as resume. runs till the next pause (break) is encountered
-        
-            Running operating system commands without leaving gdb
-            shell <command> #let's you run linux commands without leaving gdb. For example: shell ls would show you a list of files in the current directory without leaving gdb
-            make #reruns make without leaving gdb
-        
-            Selecting a gdb window
-            focus cmd #sets focus on teh command window
-            focus src #sets focus on the code window
+            <h2>Running Operating System</h2>
+                <p>
+                    shell (shell command) Let's you run linux commands without leaving gdb. For example: shell ls would show you a list of files 
+                    in the current directory without leaving gdb<br>
+                    make #reruns make without leaving gdb<br>
+                </p>    
+            
+            <h2>Selecting a gdb window</h2>
+            <p>
+                focus cmd #sets focus on teh command window<br>
+                focus src #sets focus on the code window<br>
+            </p>
         </main>
         <footer>
             <p>Footer</p>
