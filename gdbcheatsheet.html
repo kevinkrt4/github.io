@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"></html>
-<html>
+<html lang="en-us">
    <head>
         <link rel="stylesheet" type="text/css" href="./resources/css/index.css" />
         <meta charset="UTF-8">
@@ -20,69 +19,98 @@
             <h2>For C:</h2> 
                 <p>
                     gcc -g -Wall -Werr (source file)
-                </p>
-                
+                </p>   
             <h2>For GCC Assembler:</h2> 
-                <p>
-                    as --gstabs --32 -o ./$1.o ./$1.s<br>
-                    ld -melf_i386 -o ./$1.out ./$1.o<br><br>
-                        
-                    <aside>$1 is the name of the file you want to assemble.</aside> 
-                </p>
-
+                <dl>
+                    <dt>as --gstabs --32 -o ./$1.o ./$1.s</dt>
+                    <dt>ld -melf_i386 -o ./$1.out ./$1.o</dt>
+                        <dd></dd>
+                </dl>
+                <aside>$1 is the name of the file you want to assemble.</aside> 
             <h2>Loading the program into GDB</h2> 
-                <p>
-                    gdb --tui (executable)<br><br>
-                    --tui tells gdb to display the source-code window
-                </p>
-        
+                <dl>
+                    <dt>gdb --tui (executable)</dt>
+                        <dd>--tui tells gdb to display the source-code window</dd>
+                </dl>
             <h2>GDB Commands</h2>
-                <p>
-                    r (arg1 arg2 arg3...) runs the program with the given parameters<br>
-                    r (no arguments) re-runs with the previous set of arguments
-                </p>
-            
-        
+                <dl>
+                    <dt>r (arg1 arg2 arg3...)</dt> 
+                        <dd>runs the program with the given parameters</dd>
+                    <dt>r (no arguments)</dt> 
+                        <dd>re-runs with the previous set of arguments</dd>
+                </dl>
             <h2>Breakpoints</h2>
-                <p>b (location) location can be a label, line number, or function name
-                    info breakpoint     Lists breakpoints with their breakpoint id numbers<br>
-                    d breakpoint        Deletes a breakpoint<br>
-                    disable breakpoint  Disables a breakpoint without deleting it
-                    enable breakpoint   Re-enables a breakpoint
-                    condition <breakpoint id number> <condition under which you want to break>
-                    <aside>
+                <dl>
+                    <dt>b (location)</dt> 
+                        <dd>location can be a label, line number, or function name</dd>
+                    <dt>info breakpoint</dt>     
+                        <dd>Lists breakpoints with their breakpoint id numbers</dd>
+                    <dt>d breakpoint</dt>        
+                        <dd>Deletes a breakpoint</dd>
+                    <dt>disable breakpoint</dt>  
+                        <dd>Disables a breakpoint without deleting it</dd>
+                    <dt>enable breakpoint</dt>   
+                        <dd>Re-enables a breakpoint</dd>
+                    <dt>condition (breakpoint id number) (condition under which you want to break)</dt>
+                        <dd></dd>
+                </dl>
+                <aside>
                         Conditional breakpoints are good for debugging. You can watch a variable or 
                         result of an expression and only break when certain conditions are met.
-                    </aside>
-                </p>
-        
+                </aside>
             <h2>Moving up and down the call stack</h2>
-            bt #Print a backtrace of the entire stack: one line per frame for all frames in the stack.
-            up <N> #to move up the call stack N frames. if N is not specified up will move up one frame
-            down <N> #to move down the call stack N frames. if N is not specified down will move down one frame
+                <dl>
+                    <dt>bt</dt>
+                        <dd>Print a backtrace of the entire stack: one line per frame for all frames in the stack.</dd>
+                    <dt>up (N)</dt> 
+                        <dd>to move up the call stack N frames. if N is not specified up will move up one frame</dd>
+                    <dt>down (N)</dt> 
+                        <dd>to move down the call stack N frames. if N is not specified down will move down one frame</dd>
+                </dl>
+            <h2>Displaying values</h2>
+                <dl>    
+                    <dt>p (expression)</dt>
+                        <dd>displays the value of expression, variable, or register</dd>
+                    <dt>display (expression)</dt>
+                        <dd>displays the value of expression every time the program pauses (for example, at break points)</dd>
+                    <dt>info locals</dt>
+                        <dd>show all local variables</dd>
+                    <dt>info args</dt> 
+                        <dd>show all arguments that were passed to the program</dd>
+                    <dt>info variables</dt>
+                        <dd>show values of all static and global variables</dd>
+                    <dt>info registers</dt>
+                        <dd>shows contents of all registers</dd>
+                    <dt>watch (expression)</dt>
+                        <dd>monitors changes in an expression or variable</dd>
+                </dl>
+            <h2>Stepping through the program</h2>
+                <dl>
+                    <dt>n<dt> 
+                        <dd>Steps over function calls. Skips over the function to the line after the end of the function</dd>
+                    <dt>s</dt>
+                        <dd>Steps into function calls. Goes to the first line inside the function</dd>
+                    <dt>fin</dt>
+                        <dd>Finishes execution of the function you are in. Goes to the line after the end of the function</dd>
+                    <dt>c</dt>
+                        <dd>Same as resume. Runs till the next pause (break) is encountered</dd>
+                </dl>
         
-            Displaying values
-            p <expression> #displays the value of expression, variable, or register
-            display <expression> #displays the value of expression every time the program pauses (for example, at break points)
-            info locals #show all local variables
-            info args #show all arguments that were passed to the program
-            info variables: #show values of all static and global variables
-            info registers: #shows contents of all registers
-            watch <expression> #monitors changes in an expression or variable
-        
-            Stepping through the program
-            n #steps over function calls. skips over the function to the line after the end of the function
-            s #steps into function calls. goes to the first line inside the function
-            fin #finishes execution of the function you are in. goes to the line after the end of the function
-            c #same as resume. runs till the next pause (break) is encountered
-        
-            Running operating system commands without leaving gdb
-            shell <command> #let's you run linux commands without leaving gdb. For example: shell ls would show you a list of files in the current directory without leaving gdb
-            make #reruns make without leaving gdb
-        
-            Selecting a gdb window
-            focus cmd #sets focus on teh command window
-            focus src #sets focus on the code window
+            <h2>Running operating system commands without leaving gdb</h2>
+                <dl>
+                    <dt>shell (command)</dt>
+                        <dd>Let's you run linux commands without leaving gdb.</dd> 
+                        <dd>For example: <em>shell ls</em> lists files in the current directory without leaving gdb</dd>
+                    <dt>make</dt>
+                        <dd>Reruns <em>make</em> without leaving gdb</dd>
+                </dl>
+            <h2>Selecting a GDB window</h2>
+                <dl>
+                    <dt>focus cmd</dt> 
+                        <dd>Sets focus on teh command window</dd>
+                    <dt>focus src</dt> 
+                        <dd>Sets focus on the code window</dd>
+                </dl>
         </main>
         <footer>
             <p>Footer</p>
