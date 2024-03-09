@@ -1,10 +1,13 @@
+/*Support semantic markup elements in older browsers*/
+section, article, nav, aside, header, footer, main {
+  display:block;
+}
 
 img {
     max-width: 100%
-  }
+}
 
-.banner {
+  .banner {
     width: 30%;
     height: auto;
 }
-
