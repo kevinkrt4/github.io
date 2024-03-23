@@ -1,5 +1,5 @@
 /*Support semantic markup elements in older browsers*/
-section, article, nav, aside, header, footer, main {
+section, article, nav, aside, header, footer, main, address {
   display:block;
 }
 
